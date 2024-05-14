@@ -66,16 +66,6 @@ train_data = batchify(train_data, batch_size)
 val_data = batchify(val_data, eval_batch_size)
 test_data = batchify(test_data, eval_batch_size)
 
-attn = RingAttention(
-    dim = 512,
-    dim_head = 64,
-    heads = 8,
-    causal = False,
-    auto_shard_seq = True,
-    ring_attn = True,
-    ring_seq_size = 512
-)
-
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):
         super(PositionalEncoding, self).__init__()
